@@ -1,0 +1,95 @@
+Dependencies for Project 'rtosintro', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Keil_RVDS 2 (Led and UART simple)\Startup.s)(0x615E7FAE)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 536"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
+F (.\first.c)(0x6237FC70)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\first.o --omf_browse .\objects\first.crf --depend .\objects\first.d)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\task.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\semphr.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\queue.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\list.c)(0x573F3A18)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\list.o --omf_browse .\objects\list.crf --depend .\objects\list.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x6025469C)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\queue.c)(0x598C48C4)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\queue.o --omf_browse .\objects\queue.crf --depend .\objects\queue.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x6025469C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\task.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\queue.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\semphr.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\tasks.c)(0x573F3A18)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\tasks.o --omf_browse .\objects\tasks.crf --depend .\objects\tasks.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x6025469C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\task.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\timers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\StackMacros.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\port.c)(0x573F3A18)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\port.o --omf_browse .\objects\port.crf --depend .\objects\port.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x6025469C)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\task.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang\heap_4.c)(0x573F3A18)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\heap_4.o --omf_browse .\objects\heap_4.crf --depend .\objects\heap_4.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x6025469C)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602546A6)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h)(0x6232B04B)
+I (C:\Keil_v5\ARM\INC\Philips\lpc213x.h)(0x559CFE30)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\mpu_wrappers.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\task.h)(0x573F3A18)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\list.h)(0x573F3A18)
+F (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portASM.s)(0x573F3A18)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 536"--list .\listings\portasm.lst --xref -o .\objects\portasm.o --depend .\objects\portasm.d)
+I (C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx\portmacro.inc)(0x573F3A18)
