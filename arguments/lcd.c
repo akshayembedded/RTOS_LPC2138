@@ -18,7 +18,7 @@ int main()
 	IO0DIR=0;
 	IO1DIR=~0;
 	trans('a');
-	xTaskCreate(lcd1,"Welcome",90,(char *)"Hello all",0,NULL);
+	xTaskCreate(lcd1,"Welcome",90,(char *)'g',0,NULL);
 	vTaskStartScheduler();
 	while(1);
 }
@@ -36,12 +36,12 @@ void display(const char *a)
 }
 void lcd1(void *a)
 {
-	char *b=(char *)a;
+	char b=(char )a;
 	while(1)
 	{
 		if((IO0PIN&(1<<12))==(1<<12))
 		{	
-		display(b);
+		trans(b);
 		while((IO0PIN&(1<<12))==(1<<12));	
 		}
 	

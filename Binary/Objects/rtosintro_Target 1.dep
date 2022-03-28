@@ -1,6 +1,6 @@
 Dependencies for Project 'rtosintro', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Keil_RVDS 2 (Led and UART simple)\Startup.s)(0x615E7FAE)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 536"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
+F (C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Keil_RVDS 2 (Led and UART simple)\Startup.s)(0x623A8CC0)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 536"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
 F (.\first.c)(0x6239346A)(-c --cpu ARM7TDMI -g -O1 --apcs=interwork --split_sections -I C:\Users\aksha\Downloads\FreeRTOS\Source -I C:\Users\aksha\Downloads\FreeRTOS\Source\include -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\MemMang -I C:\Users\aksha\Downloads\FreeRTOS\Source\portable\RVDS\ARM7_LPC21xx-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="536"-o .\objects\first.o --omf_browse .\objects\first.crf --depend .\objects\first.d)
 I (C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOS.h)(0x5AB8BC08)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x602546A6)

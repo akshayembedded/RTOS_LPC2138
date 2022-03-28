@@ -4,9 +4,7 @@
 #include "queue.h"
 void display(const char *);
 void trans(char a);
-xHandleTask t1;
 xQueueHandle q;
-
 void task1(void *); //declaration
 void task2(void *); 
 

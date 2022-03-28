@@ -4,21 +4,21 @@
 #include "queue.h"
 void display(const char *);
 void trans(char a);
-
+SemaphoreHandle_t m;
 xQueueHandle q;
 
 void task1(void *); //declaration
 void task2(void *); 
 
 int main()
-{
+{m=xSemaphoreCreateMutex();
 	q=xQueueCreate(5,sizeof(char));
-	PINSEL0=1|1<<2;
+	PINSEL0=1|1<<2;//uart
 	U0LCR=0x83;
 	U0DLL=98;
 	U0DLM=0;
 	U0FDR=1<<4;
-	U0LCR=0x03;
+	U0LCR=0x03;//uart
 	PINSEL1=0;
 	IO0DIR=0;
 	IO1DIR=~0;
@@ -53,11 +53,19 @@ if((IO0PIN&(1<<12))==(1<<12))
 			display("\rSending to queue\r");
 		if(xQueueSend(q,&i,1000))
 		{
+			if(xSemaphoreTake(m,3000)==1)
+			{
 			display("\rSuccess\r");
+				xSemaphoreGive(m);	
+			}
 		}
 		else
 		{
-			display("\rFailedd to write\r");
+					if(xSemaphoreTake(m,3000)==1)
+			{
+			display("\rFailed to write\r");
+					xSemaphoreGive(m);	
+			}
 		}
 		while((IO0PIN&(1<<12))==(1<<12));
 	
@@ -75,12 +83,20 @@ while(1)
 		
 		if(xQueueReceive(q,&i,100))
 		{
+					if(xSemaphoreTake(m,3000)==1)
+			{
 			display("\rSuccessfully read\r");
 			trans(i);
+				xSemaphoreGive(m);	
+			}
 		}
 		else
 		{
+				if(xSemaphoreTake(m,3000)==1)
+			{
 			display("\rFailed  to read\r");
+								xSemaphoreGive(m);
+			}
 		}
 		while((IO0PIN&(1<<11))==(1<<11));
 	}

@@ -241,9 +241,9 @@ ARM Macro Assembler    Page 4
   128 00000000 00000001 
                        PLL_SETUP
                                EQU              1
-  129 00000000 00000025 
+  129 00000000 00000024 
                        PLLCFG_Val
-                               EQU              0x00000025
+                               EQU              0x00000024
   130 00000000         
   131 00000000         
   132 00000000         ; Memory Accelerator Module (MAM) definitions
@@ -529,7 +529,7 @@ ARM Macro Assembler    Page 9
   320 0000006C E3A02055        MOV              R2, #0x55
   321 00000070         
   322 00000070         ;  Configure and Enable PLL
-  323 00000070 E3A03025        MOV              R3, #PLLCFG_Val
+  323 00000070 E3A03024        MOV              R3, #PLLCFG_Val
   324 00000074 E5803004        STR              R3, [R0, #PLLCFG_OFS]
   325 00000078 E3A03001        MOV              R3, #PLLCON_PLLE
   326 0000007C E5803000        STR              R3, [R0, #PLLCON_OFS]
@@ -1413,7 +1413,7 @@ eil_RVDS
    Uses
       None
 Comment: PLLCFG_PSEL unused
-PLLCFG_Val 00000025
+PLLCFG_Val 00000024
 
 Symbol: PLLCFG_Val
    Definitions
