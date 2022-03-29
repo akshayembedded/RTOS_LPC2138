@@ -432,11 +432,6 @@
               <FileType>1</FileType>
               <FilePath>.\first.c</FilePath>
             </File>
-            <File>
-              <FileName>ledblink.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ledblink.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

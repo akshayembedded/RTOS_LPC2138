@@ -1,7 +1,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
+
 void task1(void *); //declaration
 void task2(void *); 
+
 int main()
 {
 	PINSEL0=0;
