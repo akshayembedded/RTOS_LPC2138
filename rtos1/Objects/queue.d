@@ -5,7 +5,7 @@
 .\objects\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\queue.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h
-.\objects\queue.o: C:\Keil_v5\ARM\INC\Philips\lpc21xx.h
+.\objects\queue.o: C:\Keil_v5\ARM\INC\Philips\lpc213x.h
 .\objects\queue.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h
 .\objects\queue.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h
 .\objects\queue.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h

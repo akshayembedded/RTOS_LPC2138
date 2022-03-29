@@ -1,7 +1,6 @@
 --cpu ARM7TDMI
 ".\objects\startup.o"
 ".\objects\first.o"
-".\objects\ledblink.o"
 ".\objects\list.o"
 ".\objects\queue.o"
 ".\objects\tasks.o"

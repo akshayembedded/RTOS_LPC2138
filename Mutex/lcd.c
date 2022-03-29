@@ -2,6 +2,7 @@
 #include "task.h"
 #include "semphr.h"
 SemaphoreHandle_t m;
+
 void cmd(char a);
 void data(char a);
 void lcd1(void *a);
@@ -11,9 +12,8 @@ int main()
 {
 	m=xSemaphoreCreateMutex();
 	PINSEL0=0;
-	PINSEL1=1<<18;
+	PINSEL1=0;
 	IO0DIR=0X3FF<<2;
-	AD0CR=(1<<4)|(1<<21)
 	cmd(0x38);
 	cmd(0x0F);
 	cmd(0x01);
@@ -59,27 +59,23 @@ void lcd1(void *a)
 		cmd(0x80);
 		display("Welcome");
 		xSemaphoreGive(m);
-			vTaskDelay(200);
+		vTaskDelay(200);
 		}
 	}
 }
 
 void lcd2(void *a)
 {
-	short int adc;
+
 	while(1)
 	{
-		AD0CR=(1<<4)|(1<<21)|(1<<24);
-		while((AD0GDR&(1<<31))==0);
-		adc=(AD0GDR>>6);
+		
 		if(xSemaphoreTake(m,1000))
 		{
-		cmd(0xc0);
-		data(adc/1000+48);
-		data(((adc%1000)/100)+48);
-		data(((adc%100)/10)+48);
-		data((adc%10)+48);
+		cmd(0x80);
+		display("Hello");
 		xSemaphoreGive(m);
+		vTaskDelay(200);
 		}
 		
 		

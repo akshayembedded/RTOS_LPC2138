@@ -181,9 +181,9 @@ e + ABT_Stack_Size +                           FIQ_Stack_Size + IRQ_Stack_Size
   101 00000000         ;//               <1=> XCLK Pin = CPU Clock
   102 00000000         ;//               <2=> XCLK Pin = CPU Clock / 2
   103 00000000         ;// </e>
-  104 00000000 00000000 
+  104 00000000 00000001 
                        VPBDIV_SETUP
-                               EQU              0
+                               EQU              1
   105 00000000 00000000 
                        VPBDIV_Val
                                EQU              0x00000000
@@ -510,118 +510,122 @@ ARM Macro Assembler    Page 8
   307 00000058         
   308 00000058         ; Setup VPBDIV
   309 00000058                 IF               VPBDIV_SETUP <> 0
-  313                          ENDIF
-  314 00000058         
-  315 00000058         
-  316 00000058         ; Setup PLL
-  317 00000058                 IF               PLL_SETUP <> 0
-  318 00000058 E59F0094        LDR              R0, =PLL_BASE
-  319 0000005C E3A010AA        MOV              R1, #0xAA
-  320 00000060 E3A02055        MOV              R2, #0x55
+  310 00000058 E59F00A0        LDR              R0, =VPBDIV
+  311 0000005C E3A01000        LDR              R1, =VPBDIV_Val
+  312 00000060 E5801000        STR              R1, [R0]
+  313 00000064                 ENDIF
+  314 00000064         
+  315 00000064         
+  316 00000064         ; Setup PLL
+  317 00000064                 IF               PLL_SETUP <> 0
 
 
 
 ARM Macro Assembler    Page 9 
 
 
-  321 00000064         
-  322 00000064         ;  Configure and Enable PLL
-  323 00000064 E3A03024        MOV              R3, #PLLCFG_Val
-  324 00000068 E5803004        STR              R3, [R0, #PLLCFG_OFS]
-  325 0000006C E3A03001        MOV              R3, #PLLCON_PLLE
-  326 00000070 E5803000        STR              R3, [R0, #PLLCON_OFS]
-  327 00000074 E580100C        STR              R1, [R0, #PLLFEED_OFS]
-  328 00000078 E580200C        STR              R2, [R0, #PLLFEED_OFS]
-  329 0000007C         
-  330 0000007C         ;  Wait until PLL Locked
-  331 0000007C E5903008 
+  318 00000064 E59F0098        LDR              R0, =PLL_BASE
+  319 00000068 E3A010AA        MOV              R1, #0xAA
+  320 0000006C E3A02055        MOV              R2, #0x55
+  321 00000070         
+  322 00000070         ;  Configure and Enable PLL
+  323 00000070 E3A03024        MOV              R3, #PLLCFG_Val
+  324 00000074 E5803004        STR              R3, [R0, #PLLCFG_OFS]
+  325 00000078 E3A03001        MOV              R3, #PLLCON_PLLE
+  326 0000007C E5803000        STR              R3, [R0, #PLLCON_OFS]
+  327 00000080 E580100C        STR              R1, [R0, #PLLFEED_OFS]
+  328 00000084 E580200C        STR              R2, [R0, #PLLFEED_OFS]
+  329 00000088         
+  330 00000088         ;  Wait until PLL Locked
+  331 00000088 E5903008 
                        PLL_Loop
                                LDR              R3, [R0, #PLLSTAT_OFS]
-  332 00000080 E2133B01        ANDS             R3, R3, #PLLSTAT_PLOCK
-  333 00000084 0AFFFFFC        BEQ              PLL_Loop
-  334 00000088         
-  335 00000088         ;  Switch to PLL Clock
-  336 00000088 E3A03003        MOV              R3, #(PLLCON_PLLE:OR:PLLCON_PLL
+  332 0000008C E2133B01        ANDS             R3, R3, #PLLSTAT_PLOCK
+  333 00000090 0AFFFFFC        BEQ              PLL_Loop
+  334 00000094         
+  335 00000094         ;  Switch to PLL Clock
+  336 00000094 E3A03003        MOV              R3, #(PLLCON_PLLE:OR:PLLCON_PLL
 C)
-  337 0000008C E5803000        STR              R3, [R0, #PLLCON_OFS]
-  338 00000090 E580100C        STR              R1, [R0, #PLLFEED_OFS]
-  339 00000094 E580200C        STR              R2, [R0, #PLLFEED_OFS]
-  340 00000098                 ENDIF                        ; PLL_SETUP
-  341 00000098         
-  342 00000098         
-  343 00000098         ; Setup MAM
-  344 00000098                 IF               MAM_SETUP <> 0
-  345 00000098 E59F0058        LDR              R0, =MAM_BASE
-  346 0000009C E3A01004        MOV              R1, #MAMTIM_Val
-  347 000000A0 E5801004        STR              R1, [R0, #MAMTIM_OFS]
-  348 000000A4 E3A01002        MOV              R1, #MAMCR_Val
-  349 000000A8 E5801000        STR              R1, [R0, #MAMCR_OFS]
-  350 000000AC                 ENDIF                        ; MAM_SETUP
-  351 000000AC         
-  352 000000AC         
-  353 000000AC         ; Memory Mapping (when Interrupt Vectors are in RAM)
-  354 000000AC E01FC040 
+  337 00000098 E5803000        STR              R3, [R0, #PLLCON_OFS]
+  338 0000009C E580100C        STR              R1, [R0, #PLLFEED_OFS]
+  339 000000A0 E580200C        STR              R2, [R0, #PLLFEED_OFS]
+  340 000000A4                 ENDIF                        ; PLL_SETUP
+  341 000000A4         
+  342 000000A4         
+  343 000000A4         ; Setup MAM
+  344 000000A4                 IF               MAM_SETUP <> 0
+  345 000000A4 E59F005C        LDR              R0, =MAM_BASE
+  346 000000A8 E3A01004        MOV              R1, #MAMTIM_Val
+  347 000000AC E5801004        STR              R1, [R0, #MAMTIM_OFS]
+  348 000000B0 E3A01002        MOV              R1, #MAMCR_Val
+  349 000000B4 E5801000        STR              R1, [R0, #MAMCR_OFS]
+  350 000000B8                 ENDIF                        ; MAM_SETUP
+  351 000000B8         
+  352 000000B8         
+  353 000000B8         ; Memory Mapping (when Interrupt Vectors are in RAM)
+  354 000000B8 E01FC040 
                        MEMMAP  EQU              0xE01FC040  ; Memory Mapping Co
                                                             ntrol
-  355 000000AC                 IF               :DEF:REMAP
+  355 000000B8                 IF               :DEF:REMAP
   365                          ENDIF
-  366 000000AC         
-  367 000000AC         
-  368 000000AC         ; Initialise Interrupt System
-  369 000000AC         ;  ...
-  370 000000AC         
-  371 000000AC         
-  372 000000AC         ; Setup Stack for each mode
-  373 000000AC         
-  374 000000AC E59F0048        LDR              R0, =Stack_Top
-  375 000000B0         
-  376 000000B0         ;  Enter Undefined Instruction Mode and set its Stack Po
+  366 000000B8         
+  367 000000B8         
+  368 000000B8         ; Initialise Interrupt System
+  369 000000B8         ;  ...
+  370 000000B8         
+  371 000000B8         
+  372 000000B8         ; Setup Stack for each mode
+  373 000000B8         
+  374 000000B8 E59F004C        LDR              R0, =Stack_Top
+  375 000000BC         
+  376 000000BC         ;  Enter Undefined Instruction Mode and set its Stack Po
                        inter
-  377 000000B0 E321F0DB        MSR              CPSR_c, #Mode_UND:OR:I_Bit:OR:F
+  377 000000BC E321F0DB        MSR              CPSR_c, #Mode_UND:OR:I_Bit:OR:F
 _Bit
-  378 000000B4 E1A0D000        MOV              SP, R0
-  379 000000B8 E2400008        SUB              R0, R0, #UND_Stack_Size
-  380 000000BC         
-  381 000000BC         ;  Enter Abort Mode and set its Stack Pointer
+  378 000000C0 E1A0D000        MOV              SP, R0
 
 
 
 ARM Macro Assembler    Page 10 
 
 
-  382 000000BC E321F0D7        MSR              CPSR_c, #Mode_ABT:OR:I_Bit:OR:F
+  379 000000C4 E2400008        SUB              R0, R0, #UND_Stack_Size
+  380 000000C8         
+  381 000000C8         ;  Enter Abort Mode and set its Stack Pointer
+  382 000000C8 E321F0D7        MSR              CPSR_c, #Mode_ABT:OR:I_Bit:OR:F
 _Bit
-  383 000000C0 E1A0D000        MOV              SP, R0
-  384 000000C4 E2400008        SUB              R0, R0, #ABT_Stack_Size
-  385 000000C8         
-  386 000000C8         ;  Enter FIQ Mode and set its Stack Pointer
-  387 000000C8 E321F0D1        MSR              CPSR_c, #Mode_FIQ:OR:I_Bit:OR:F
+  383 000000CC E1A0D000        MOV              SP, R0
+  384 000000D0 E2400008        SUB              R0, R0, #ABT_Stack_Size
+  385 000000D4         
+  386 000000D4         ;  Enter FIQ Mode and set its Stack Pointer
+  387 000000D4 E321F0D1        MSR              CPSR_c, #Mode_FIQ:OR:I_Bit:OR:F
 _Bit
-  388 000000CC E1A0D000        MOV              SP, R0
-  389 000000D0 E2400008        SUB              R0, R0, #FIQ_Stack_Size
-  390 000000D4         
-  391 000000D4         ;  Enter IRQ Mode and set its Stack Pointer
-  392 000000D4 E321F0D2        MSR              CPSR_c, #Mode_IRQ:OR:I_Bit:OR:F
+  388 000000D8 E1A0D000        MOV              SP, R0
+  389 000000DC E2400008        SUB              R0, R0, #FIQ_Stack_Size
+  390 000000E0         
+  391 000000E0         ;  Enter IRQ Mode and set its Stack Pointer
+  392 000000E0 E321F0D2        MSR              CPSR_c, #Mode_IRQ:OR:I_Bit:OR:F
 _Bit
-  393 000000D8 E1A0D000        MOV              SP, R0
-  394 000000DC E2400C03        SUB              R0, R0, #IRQ_Stack_Size
-  395 000000E0         
-  396 000000E0         ;  Enter Supervisor Mode and set its Stack Pointer
-  397 000000E0 E321F0D3        MSR              CPSR_c, #Mode_SVC:OR:I_Bit:OR:F
+  393 000000E4 E1A0D000        MOV              SP, R0
+  394 000000E8 E2400C03        SUB              R0, R0, #IRQ_Stack_Size
+  395 000000EC         
+  396 000000EC         ;  Enter Supervisor Mode and set its Stack Pointer
+  397 000000EC E321F0D3        MSR              CPSR_c, #Mode_SVC:OR:I_Bit:OR:F
 _Bit
-  398 000000E4 E1A0D000        MOV              SP, R0
-  399 000000E8 E2400C03        SUB              R0, R0, #SVC_Stack_Size
-  400 000000EC         
-  401 000000EC         ; Enter the C code
-  402 000000EC         
-  403 000000EC                 IMPORT           __main
-  404 000000EC E59F000C        LDR              R0, =__main
-  405 000000F0 E12FFF10        BX               R0
-  406 000000F4         
-  407 000000F4         
-  408 000000F4                 IF               :DEF:__MICROLIB
-  414 000000F4         ; User Initial Stack & Heap
-  415 000000F4 E01FC080 
+  398 000000F0 E1A0D000        MOV              SP, R0
+  399 000000F4 E2400C03        SUB              R0, R0, #SVC_Stack_Size
+  400 000000F8         
+  401 000000F8         ; Enter the C code
+  402 000000F8         
+  403 000000F8                 IMPORT           __main
+  404 000000F8 E59F0010        LDR              R0, =__main
+  405 000000FC E12FFF10        BX               R0
+  406 00000100         
+  407 00000100         
+  408 00000100                 IF               :DEF:__MICROLIB
+  414 00000100         ; User Initial Stack & Heap
+  415 00000100 E01FC100 
+              E01FC080 
               E01FC000 
               00000000 
               00000000         AREA             |.text|, CODE, READONLY
@@ -644,16 +648,16 @@ ze + USR_Stack_Size)
               00000308 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
-bjects\startup.d -o.\objects\startup.o -IC:\Users\aksha\Downloads\FreeRTOS\Sour
-ce\portable\RVDS\ARM7_LPC21xx -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\INC\Ph
-ilips --predefine="__UVISION_VERSION SETA 536" --list=.\listings\startup.lst "C
-:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Keil_RVDS 1 (original 12Mhz)
 
 
 
 ARM Macro Assembler    Page 11 
 
 
+bjects\startup.d -o.\objects\startup.o -IC:\Users\aksha\Downloads\FreeRTOS\Sour
+ce\portable\RVDS\ARM7_LPC21xx -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\INC\Ph
+ilips --predefine="__UVISION_VERSION SETA 536" --list=.\listings\startup.lst "C
+:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Keil_RVDS 1 (original 12Mhz)
 \Startup.s"
 
 
@@ -840,7 +844,7 @@ eil_RVDS
       At line 261 in file C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_K
 eil_RVDS
 
-PLL_Loop 0000007C
+PLL_Loop 00000088
 
 Symbol: PLL_Loop
    Definitions
@@ -1582,9 +1586,10 @@ Symbol: VPBDIV
       At line 91 in file C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_Ke
 il_RVDS
    Uses
-      None
-Comment: VPBDIV unused
-VPBDIV_SETUP 00000000
+      At line 310 in file C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_K
+eil_RVDS
+Comment: VPBDIV used once
+VPBDIV_SETUP 00000001
 
 Symbol: VPBDIV_SETUP
    Definitions
@@ -1601,8 +1606,9 @@ Symbol: VPBDIV_Val
       At line 105 in file C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_K
 eil_RVDS
    Uses
-      None
-Comment: VPBDIV_Val unused
+      At line 311 in file C:\Users\aksha\Downloads\FreeRTOS\Demo\ARM7_LPC2129_K
+eil_RVDS
+Comment: VPBDIV_Val used once
 55 symbols
 
 

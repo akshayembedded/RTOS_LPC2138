@@ -4,7 +4,7 @@
 .\objects\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\list.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\FreeRTOSConfig.h
-.\objects\list.o: C:\Keil_v5\ARM\INC\Philips\lpc21xx.h
+.\objects\list.o: C:\Keil_v5\ARM\INC\Philips\lpc213x.h
 .\objects\list.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\projdefs.h
 .\objects\list.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\portable.h
 .\objects\list.o: C:\Users\aksha\Downloads\FreeRTOS\Source\include\deprecated_definitions.h
