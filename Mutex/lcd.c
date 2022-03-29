@@ -72,7 +72,7 @@ void lcd2(void *a)
 		
 		if(xSemaphoreTake(m,1000))
 		{
-		cmd(0x80);
+		cmd(0xC0);
 		display("Hello");
 		xSemaphoreGive(m);
 		vTaskDelay(200);
