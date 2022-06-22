@@ -4,6 +4,7 @@
 #include "queue.h"
 void display(const char *);
 void trans(char a);
+xTaskHandle t1;
 xQueueHandle q;
 void task1(void *); //declaration
 void task2(void *); 
@@ -51,7 +52,6 @@ if((IO0PIN&(1<<12))==(1<<12))
 		if(xQueueSend(q,&i,1000))
 		{
 			display("\rSuccess\r");
-			break;
 		}
 		else
 		{
