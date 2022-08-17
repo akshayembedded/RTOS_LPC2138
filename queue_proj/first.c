@@ -12,7 +12,7 @@ void task2(void *);
 
 int main()
 {m=xSemaphoreCreateMutex();
-	q=xQueueCreate(5,sizeof(char));
+	q=xQueueCreate(5,2); //char a[5] sizeof(int)
 	PINSEL0=1|1<<2;//uart
 	U0LCR=0x83;
 	U0DLL=98;
@@ -43,14 +43,14 @@ void display(const char *a)
 }
 void task1(void *a)//send q
 {
-
+	char i=8;
 while(1)
 {
-	char i;
-if((IO0PIN&(1<<12))==(1<<12))
+
+if((IO0PIN&(1<<12))==(1<<12)) //pullup pulldown
 		{
-	i++;
-			display("\rSending to queue\r");
+		i++;
+		display("\rSending to queue\r");
 		if(xQueueSend(q,&i,1000))
 		{
 			if(xSemaphoreTake(m,3000)==1)
@@ -74,19 +74,34 @@ if((IO0PIN&(1<<12))==(1<<12))
 }
 void task2(void *a)
 {
-	char i;
+	int i;
+	char num[5];
+	signed char j;//unsigned format
 while(1)
 {
 	if((IO0PIN&(1<<11))==(1<<11))
 	{
+		if(xSemaphoreTake(m,3000)==1)
+			{
 			display("\rReading from queue\r");
-		
+			xSemaphoreGive(m);	
+			}
 		if(xQueueReceive(q,&i,100))
 		{
 					if(xSemaphoreTake(m,3000)==1)
 			{
 			display("\rSuccessfully read\r");
-			trans(i);
+						j=0;
+			do
+				{
+				num[j]=i%10;//integer data type 8 bit size
+				i=i/10;//
+				j++;
+				}while(i!=0);
+			for(j--;j>=0;j--)//
+				{
+				trans(num[j]+48);
+				}
 				xSemaphoreGive(m);	
 			}
 		}
@@ -94,7 +109,7 @@ while(1)
 		{
 				if(xSemaphoreTake(m,3000)==1)
 			{
-			display("\rFailed  to read\r");
+			display("\rFailed  to read, No data\r");
 								xSemaphoreGive(m);
 			}
 		}
