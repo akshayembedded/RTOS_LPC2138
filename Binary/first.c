@@ -47,6 +47,7 @@ while(1)
 	if((IO0PIN&(1<<12))==(1<<12))
 	{
 		xSemaphoreGive(b);
+		while((IO0PIN&(1<<12))==(1<<12));
 	}
 	
 }
