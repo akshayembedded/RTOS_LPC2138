@@ -1,6 +1,6 @@
 /* Standard includes. */
 #include <stdlib.h>
-#include<lpc21xx.h>
+#include<lpc213x.h>
 
 /* Scheduler includes. */
 #include "FreeRTOS.h"
