@@ -1,15 +1,17 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
-SemaphoreHandle_t m,m2;
 
-void lcd1(void *a);
-void lcd2(void *a);
-void lcd3(void *a);
+int a[5]={8,3,5,6,7};
+int index=0;
+
+void lcd1(void *parm);
+void lcd2(void *parm);
+void lcd3(void *parm);
 void display(const char *);
-void trans(char a);
+void trans(char );
 
-int a[5]={8,3,5,6,7},index=0;
+SemaphoreHandle_t m,m2;
 
 int main()
 {
@@ -52,7 +54,7 @@ void display(const char *a)
 	trans(*a++);
 	}
 }
-void lcd1(void *a)
+void lcd1(void *parm)
 {
 	char b;
 	while(1)
@@ -68,7 +70,7 @@ void lcd1(void *a)
 					display("\r\nArray Value is ");
 					trans(a[index++]+48);
 					if(index==5) 
-						index=0
+						index=0;
 					display("\rIn Take");
 					display("\rBefore Taken - ");
 					trans(b+48);
@@ -83,7 +85,7 @@ void lcd1(void *a)
 		}
 	}
 }
-void lcd3(void *a)
+void lcd3(void *parm)
 {
 	char b;
 	while(1)
@@ -99,7 +101,7 @@ void lcd3(void *a)
 					display("\r\nArray Value is ");
 					trans(a[index++]+48);
 					if(index==5) 
-						index=0
+						index=0;
 					display("\rIn Take");
 					display("\rBefore Taken - ");
 					trans(b+48);
@@ -111,10 +113,10 @@ void lcd3(void *a)
 			}
 		while((IO0PIN&(1<<13))==(1<<13));
 		
-		}
+	}
 	}
 }
-void lcd2(void *a)
+void lcd2(void *parm)
 {
 	char b;
 	while(1)
